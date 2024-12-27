@@ -7,19 +7,20 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.chunk.ChunkAccess;
 
+import static net.mc3699.backrooms.dimension.util.GenUtil.generateBasicWallsWithExtension;
 import static net.mc3699.backrooms.dimension.util.GenUtil.isChunkInNoise;
 
 public class BackroomsL1 {
 
     private final static int L1_FLOOR_LEVEL = -62;
-    private final static int L1_CEILING_LEVEL = -57;
+    private final static int L1_CEILING_LEVEL = -56;
 
     public static void generateChunk(ChunkAccess chunk)
     {
         GenUtil.generateBeams(chunk, L1_CEILING_LEVEL + 2);
         GenUtil.fillLayer(chunk, L1_CEILING_LEVEL + 3, Blocks.OAK_PLANKS);
 
-        GenUtil.fillLayer(chunk, L1_CEILING_LEVEL, ModBlocks.TILE.get());
+        GenUtil.fillLayer(chunk, L1_CEILING_LEVEL, ModBlocks.LVL1_CEILING_TILE.get());
 
         if(isChunkInNoise(chunk.getPos().x, chunk.getPos().z, GenNoise.PlusRoomNoise, 0.6))
         {
@@ -32,10 +33,12 @@ public class BackroomsL1 {
         }
 
         if(!isChunkInNoise(chunk.getPos().x,chunk.getPos().z, GenNoise.EmptyAreaNoise, 0.25)) {
-            GenUtil.generateBasicWallsWithExtension(chunk, L1_FLOOR_LEVEL, L1_CEILING_LEVEL, ModBlocks.YELLOW_WALLPAPER.get(), 2, Blocks.STONE_BRICKS);
+            GenUtil.generateBasicWallsWithExtension(chunk, L1_FLOOR_LEVEL, L1_CEILING_LEVEL, ModBlocks.LVL1_WALLPAPER.get(), 3,  Blocks.STONE_BRICKS);
+
+
         }
 
-        GenUtil.fillLayer(chunk, L1_FLOOR_LEVEL, ModBlocks.MOIST_CARPET.get());
+        GenUtil.fillLayer(chunk, L1_FLOOR_LEVEL, ModBlocks.LVL1_CARPET.get());
     }
 
 }

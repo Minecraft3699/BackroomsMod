@@ -17,8 +17,8 @@ public class BackroomsL2 {
 
     private static final Random random = new Random();
 
-    public static final int L2_FLOOR_HEIGHT = -53;
-    public static final int L2_CEILING_HEIGHT = -38;
+    public static final int L2_FLOOR_HEIGHT = -52;
+    public static final int L2_CEILING_HEIGHT = -37;
 
 
     private static final List<Block> blockList = new ArrayList<>();

@@ -115,6 +115,9 @@ dependencies {
 
     implementation files("libs/immersive_portals-6.0.3.jar")
     implementation files("libs/cloth-config-15.0.140-neoforge.jar")
+    implementation files("libs/veil-neoforge-1.21.1-1.0.0.80.jar")
+
+
 
     // Example optional mod dependency with JEI
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime

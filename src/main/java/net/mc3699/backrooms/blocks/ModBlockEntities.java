@@ -1,10 +1,7 @@
 package net.mc3699.backrooms.blocks;
 
 import net.mc3699.backrooms.BackroomsMod;
-import net.mc3699.backrooms.blocks.entity.BeamInitiatorBlockEntity;
-import net.mc3699.backrooms.blocks.entity.LaserBlockEntity;
-import net.mc3699.backrooms.blocks.entity.NullzoneBlockEntity;
-import net.mc3699.backrooms.blocks.entity.PrototypeBlockEntity;
+import net.mc3699.backrooms.blocks.entity.*;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -35,6 +32,11 @@ public class ModBlockEntities {
                     ModBlocks.LASER_TEST.get()
             ).build(null));
 
+    public static final Supplier<BlockEntityType<LightTestBlockEntity>> LIGHT_TEST_BLOCK_ENTITY = BLOCK_ENTITIES.register("light_test_entity",
+            () -> BlockEntityType.Builder.of(
+                    LightTestBlockEntity::new,
+                    ModBlocks.LIGHT_TEST.get()
+            ).build(null));
 
     public static final Supplier<BlockEntityType<BeamInitiatorBlockEntity>> BEAM_INIT_ENTITY = BLOCK_ENTITIES.register("beam_init_entity",
             () -> BlockEntityType.Builder.of(

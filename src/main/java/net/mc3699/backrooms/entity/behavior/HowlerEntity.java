@@ -1,5 +1,6 @@
 package net.mc3699.backrooms.entity.behavior;
 
+import foundry.veil.api.client.render.light.PointLight;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.entity.*;
@@ -22,8 +23,14 @@ public class HowlerEntity extends Monster {
 
     private Player targetPlayer;
 
+
     public HowlerEntity(EntityType<? extends Monster> entityType, Level level) {
         super(entityType, level);
+    }
+
+    @Override
+    public void tick() {
+        super.tick();
     }
 
     @Override
@@ -54,7 +61,6 @@ public class HowlerEntity extends Monster {
         private StalkPlayerGoal(Monster mob) {
             this.mob = mob;
         }
-
         @Override
         public boolean canUse() {
             targetPlayer = mob.level().getNearestPlayer(mob, 100d);

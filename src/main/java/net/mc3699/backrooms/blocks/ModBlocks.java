@@ -40,14 +40,8 @@ public class ModBlocks {
     public static final DeferredBlock<Block> PROTOTYPE = registerBlock("prototype",
             () -> new PrototypeBlock(BlockBehaviour.Properties.of().sound(SoundType.METAL)));
 
-    public static final DeferredBlock<Block> THRESHOLD_TRANSMITTER = registerBlock("threshold_transmitter",
-            () -> new ThresholdTransmitterBlock(BlockBehaviour.Properties.of().sound(SoundType.METAL)));
-
     public static final DeferredBlock<Block> THRESHOLD_ORIGIN = registerBlock("threshold_origin",
             () -> new ThresholdOriginBlock(BlockBehaviour.Properties.of().sound(SoundType.METAL)));
-
-    public static final DeferredBlock<Block> NULL_ZONE = registerBlock("null_zone",
-            () -> new NullZoneBlock(BlockBehaviour.Properties.of().noCollission()));
 
     public static final DeferredBlock<Block> LASER_TEST = registerBlock("laser",
             () -> new LaserBlock(BlockBehaviour.Properties.of()));

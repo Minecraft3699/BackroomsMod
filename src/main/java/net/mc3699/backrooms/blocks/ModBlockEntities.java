@@ -20,12 +20,6 @@ public class ModBlockEntities {
                     ModBlocks.PROTOTYPE.get()
             ).build(null));
 
-    public static final Supplier<BlockEntityType<NullzoneBlockEntity>> NULLZONE_BLOCK_ENTITY = BLOCK_ENTITIES.register("nullzone_block_entity",
-            () -> BlockEntityType.Builder.of(
-                    NullzoneBlockEntity::new,
-                    ModBlocks.NULL_ZONE.get()
-            ).build(null));
-
     public static final Supplier<BlockEntityType<LaserBlockEntity>> LASER_BLOCK_ENTITY = BLOCK_ENTITIES.register("laser_block_entity",
             () -> BlockEntityType.Builder.of(
                     LaserBlockEntity::new,

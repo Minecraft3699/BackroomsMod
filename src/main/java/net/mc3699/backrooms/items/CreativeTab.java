@@ -20,13 +20,13 @@ public class CreativeTab {
 
     public static final Supplier<CreativeModeTab> BACKROOMS_ITEMS_TAB = CREATIVE_TAB.register("backrooms_items_tab",
             () -> CreativeModeTab.builder()
-                    .icon(() -> new ItemStack(ModBlocks.YELLOW_WALLPAPER.get()))
+                    .icon(() -> new ItemStack(ModBlocks.LVL1_WALLPAPER.get()))
                     .title(Component.translatable("creative_tab.mcbr.backrooms_items"))
                     .displayItems(((itemDisplayParameters, output) -> {
-                        output.accept(ModBlocks.YELLOW_WALLPAPER);
-                        output.accept(ModBlocks.MOIST_CARPET);
-                        output.accept(ModBlocks.TILE);
-                        output.accept(ModBlocks.TILE_LIGHT);
+                        output.accept(ModBlocks.LVL1_WALLPAPER);
+                        output.accept(ModBlocks.LVL1_CARPET);
+                        output.accept(ModBlocks.LVL1_CEILING_TILE);
+                        output.accept(ModBlocks.LVL1_CEILING_LIGHT);
                         output.accept(ModBlocks.NULL_ZONE);
                         output.accept(ModBlocks.AUDITORY_GUIDEPOST);
                         output.accept(ModBlocks.THRESHOLD_ORIGIN);

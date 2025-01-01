@@ -23,7 +23,7 @@ public class GenUtil {
         {
             for(int z = 0; z < 15; z = z + 4)
             {
-                chunk.setBlockState(chunkPos.getWorldPosition().offset(x,layer,z), ModBlocks.TILE_LIGHT.get().defaultBlockState(), true);
+                chunk.setBlockState(chunkPos.getWorldPosition().offset(x,layer,z), ModBlocks.LVL1_CEILING_LIGHT.get().defaultBlockState(), true);
                 if(chunk.getBlockState(chunkPos.getWorldPosition().offset(x,layer-1,z)).is(Blocks.AIR))
                 {
                     chunk.setBlockState(chunkPos.getWorldPosition().offset(x,layer-1,z), Blocks.LIGHT.defaultBlockState().setValue(BlockStateProperties.LEVEL, 15), false);
@@ -114,8 +114,8 @@ public class GenUtil {
 
     public static void generateCrossShape(ChunkAccess chunk, int floorLevel, int ceilingLevel)
     {
-        fillWall(chunk, 6, 3, 9, 12, floorLevel, ceilingLevel,ModBlocks.YELLOW_WALLPAPER.get());
-        fillWall(chunk, 3, 6, 12,9, floorLevel, ceilingLevel, ModBlocks.YELLOW_WALLPAPER.get());
+        fillWall(chunk, 6, 3, 9, 12, floorLevel, ceilingLevel,ModBlocks.LVL1_WALLPAPER.get());
+        fillWall(chunk, 3, 6, 12,9, floorLevel, ceilingLevel, ModBlocks.LVL1_WALLPAPER.get());
     }
 
 }

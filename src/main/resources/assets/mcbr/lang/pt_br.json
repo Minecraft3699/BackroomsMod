@@ -14,6 +14,7 @@
   "block.mcbr.rf_cavity": "Cavidade RF",
   "block.mcbr.threshold_backplane": "Placa de Fundo do Limiar",
   "block.mcbr.beam_initiator": "Iniciador de Feixe",
-
+  "block.mcbr.magnetic_lens": "Lente Magnética",
+  
   "sounds.mcbr.auditory_guidepost_ping": "Sinais Sonoros do Guia"
 }

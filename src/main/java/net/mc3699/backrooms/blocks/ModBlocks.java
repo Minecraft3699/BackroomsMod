@@ -19,26 +19,23 @@ public class ModBlocks {
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(BackroomsMod.MODID);
 
 
-    public static final DeferredBlock<Block> MOIST_CARPET = registerBlock("lvl1_carpet", () -> new Block(BlockBehaviour.Properties.of()
+    public static final DeferredBlock<Block> LVL1_CARPET = registerBlock("lvl1_carpet", () -> new Block(BlockBehaviour.Properties.of()
             .strength(0.5f)
             .sound(SoundType.WOOL)
             ));
 
 
-    public static final DeferredBlock<Block> YELLOW_WALLPAPER = registerBlock("lvl1_wallpaper",
+    public static final DeferredBlock<Block> LVL1_WALLPAPER = registerBlock("lvl1_wallpaper",
             () -> new WallpaperBlock(BlockBehaviour.Properties.of()
                     .strength(1.5f)
                     .sound(SoundType.STONE)
             ));
 
-    public static final DeferredBlock<Block> TILE = registerBlock("lvl1_ceiling_tile",
+    public static final DeferredBlock<Block> LVL1_CEILING_TILE = registerBlock("lvl1_ceiling_tile",
             () -> new Block(BlockBehaviour.Properties.of().sound(SoundType.WOOL)));
 
-    public static final DeferredBlock<Block> TILE_LIGHT = registerBlock("lvl1_ceiling_light",
+    public static final DeferredBlock<Block> LVL1_CEILING_LIGHT = registerBlock("lvl1_ceiling_light",
             () -> new Block(BlockBehaviour.Properties.of().sound(SoundType.GLASS).emissiveRendering((blockState, blockGetter, blockPos) -> false).lightLevel(blockState -> 0)));
-
-    public static final DeferredBlock<Block> TILE_VENT = registerBlock("tile_vent",
-            () -> new Block(BlockBehaviour.Properties.of().sound(SoundType.STONE)));
 
     public static final DeferredBlock<Block> PROTOTYPE = registerBlock("prototype",
             () -> new PrototypeBlock(BlockBehaviour.Properties.of().sound(SoundType.METAL)));

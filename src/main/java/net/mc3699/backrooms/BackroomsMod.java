@@ -7,7 +7,6 @@ import net.mc3699.backrooms.blocks.blockRenderer.PlasmaRenderer;
 import net.mc3699.backrooms.dimension.BackroomsGeneration;
 import net.mc3699.backrooms.entity.ModEntities;
 import net.mc3699.backrooms.entity.client.HowlerRenderer;
-import net.mc3699.backrooms.blocks.blockRenderer.NullzoneBlockEntityRenderer;
 import net.mc3699.backrooms.entity.client.LifeformRenderer;
 import net.mc3699.backrooms.items.CreativeTab;
 import net.mc3699.backrooms.items.ModItems;
@@ -74,9 +73,6 @@ public class BackroomsMod
         {
             EntityRenderers.register(ModEntities.HOWLER_ENTITY, HowlerRenderer::new);
             EntityRenderers.register(ModEntities.LIFEFORM_ENTITY, LifeformRenderer::new);
-
-
-            BlockEntityRenderers.register(ModBlockEntities.NULLZONE_BLOCK_ENTITY.get(), NullzoneBlockEntityRenderer::new);
         }
     }
 

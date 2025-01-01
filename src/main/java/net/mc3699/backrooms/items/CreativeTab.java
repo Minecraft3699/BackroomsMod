@@ -27,10 +27,8 @@ public class CreativeTab {
                         output.accept(ModBlocks.LVL1_CARPET);
                         output.accept(ModBlocks.LVL1_CEILING_TILE);
                         output.accept(ModBlocks.LVL1_CEILING_LIGHT);
-                        output.accept(ModBlocks.NULL_ZONE);
                         output.accept(ModBlocks.AUDITORY_GUIDEPOST);
                         output.accept(ModBlocks.THRESHOLD_ORIGIN);
-                        output.accept(ModBlocks.THRESHOLD_TRANSMITTER);
                         output.accept(ModBlocks.BEAM_INITIATOR);
                         output.accept(ModBlocks.RF_CAVITY);
                         output.accept(ModBlocks.MAGNETIC_LENS);

@@ -26,6 +26,12 @@ public class ModBlockEntities {
                     ModBlocks.LASER_TEST.get()
             ).build(null));
 
+    public static final Supplier<BlockEntityType<ThresholdPortalBlockEntity>> THRESHOLD_PORTAL = BLOCK_ENTITIES.register("threshold_portal",
+            () -> BlockEntityType.Builder.of(
+                    ThresholdPortalBlockEntity::new,
+                    ModBlocks.THRESHOLD_PORTAL.get()
+            ).build(null));
+
     public static final Supplier<BlockEntityType<LightTestBlockEntity>> LIGHT_TEST_BLOCK_ENTITY = BLOCK_ENTITIES.register("light_test_entity",
             () -> BlockEntityType.Builder.of(
                     LightTestBlockEntity::new,

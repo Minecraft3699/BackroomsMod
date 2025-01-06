@@ -4,6 +4,7 @@ import foundry.veil.Veil;
 import net.mc3699.backrooms.blocks.ModBlockEntities;
 import net.mc3699.backrooms.blocks.ModBlocks;
 import net.mc3699.backrooms.blocks.blockRenderer.PlasmaRenderer;
+import net.mc3699.backrooms.blocks.blockRenderer.ThresholdPortalRenderer;
 import net.mc3699.backrooms.dimension.BackroomsGeneration;
 import net.mc3699.backrooms.entity.ModEntities;
 import net.mc3699.backrooms.entity.client.HowlerRenderer;
@@ -73,6 +74,7 @@ public class BackroomsMod
         {
             EntityRenderers.register(ModEntities.HOWLER_ENTITY, HowlerRenderer::new);
             EntityRenderers.register(ModEntities.LIFEFORM_ENTITY, LifeformRenderer::new);
+            BlockEntityRenderers.register(ModBlockEntities.THRESHOLD_PORTAL.get(), ThresholdPortalRenderer::new);
         }
     }
 

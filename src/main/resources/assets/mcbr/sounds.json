@@ -4,7 +4,14 @@
     "sounds": [
       "mcbr:auditory_guidepost_ping"
     ]
-  }
+  },
 
+  "light_1":
+  {
+    "subtitle": "sounds.mcbr.light_buzz",
+    "sounds": [
+      "mcbr:light_1"
+    ]
+  }
 
 }

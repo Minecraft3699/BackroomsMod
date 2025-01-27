@@ -35,7 +35,7 @@ public class ModBlocks {
             () -> new Block(BlockBehaviour.Properties.of().sound(SoundType.WOOL)));
 
     public static final DeferredBlock<Block> LVL1_CEILING_LIGHT = registerBlock("lvl1_ceiling_light",
-            () -> new Block(BlockBehaviour.Properties.of().sound(SoundType.GLASS).emissiveRendering((blockState, blockGetter, blockPos) -> false).lightLevel(blockState -> 0)));
+            () -> new Level1CeilingLightBlock(BlockBehaviour.Properties.of().sound(SoundType.GLASS).emissiveRendering((blockState, blockGetter, blockPos) -> false).lightLevel(blockState -> 0)));
 
     public static final DeferredBlock<Block> PROTOTYPE = registerBlock("prototype",
             () -> new PrototypeBlock(BlockBehaviour.Properties.of().sound(SoundType.METAL)));

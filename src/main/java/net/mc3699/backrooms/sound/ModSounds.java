@@ -22,6 +22,7 @@ public class ModSounds {
 
 
     public static final Supplier<SoundEvent> AUDITORY_GUIDEPOST = registerSoundEvent("auditory_guidepost_ping");
+    public static final Supplier<SoundEvent> LVL1_CEILING_LIGHT = registerSoundEvent("light_1");
 
 
 

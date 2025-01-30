@@ -3,6 +3,7 @@ package net.mc3699.backrooms.dimension;
 import net.mc3699.backrooms.BackroomsMod;
 import net.mc3699.backrooms.dimension.levels.BackroomsL1;
 import net.mc3699.backrooms.dimension.levels.BackroomsL2;
+import net.mc3699.backrooms.dimension.levels.BackroomsPitfallZone;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -36,7 +37,8 @@ public class BackroomsGeneration {
                 if (level.dimension() == BACKROOMS_DIM_KEY) {
                     // Insert levels for generation here.
                     BackroomsL1.generateChunk(event.getChunk());
-                    BackroomsL2.generateChunk(event.getChunk());
+                    //BackroomsL2.generateChunk(event.getChunk());
+                    BackroomsPitfallZone.generateChunk(event.getChunk());
                     //BackroomsHallwayTest.generateChunk(event.getChunk());
                 }
             }

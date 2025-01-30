@@ -62,7 +62,7 @@ public class ModBlocks {
             () -> new LightingTestBlock(BlockBehaviour.Properties.of()));
 
     public static final DeferredBlock<Block> THRESHOLD_PORTAL = registerBlock("threshold_portal",
-            () -> new ThresholdPortalBlock(BlockBehaviour.Properties.of()));
+            () -> new ThresholdPortalBlock(BlockBehaviour.Properties.of().noCollission()));
 
     public static final DeferredBlock<AuditoryGuidepostBlock> AUDITORY_GUIDEPOST = registerBlock("auditory_guidepost",
             () -> new AuditoryGuidepostBlock(BlockBehaviour.Properties.of().sound(SoundType.METAL).noCollission()));

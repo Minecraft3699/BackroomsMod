@@ -37,9 +37,6 @@ public class BackroomsL1 {
         GenUtil.fillLayer(chunk, L1_CEILING_LEVEL + 3, Blocks.OAK_PLANKS);
         GenUtil.fillLayer(chunk, L1_FLOOR_LEVEL, ModBlocks.LVL1_CARPET.get());
         GenUtil.fillLayer(chunk, L1_CEILING_LEVEL, ModBlocks.LVL1_CEILING_TILE.get());
-
-        if(chunk.getPos().z % 1500 != 0)
-        {
             if(isChunkInNoise(chunk.getPos().x, chunk.getPos().z, GenNoise.PlusRoomNoise, 0.6))
             {
                 GenUtil.generateCrossShape(chunk,L1_FLOOR_LEVEL,L1_CEILING_LEVEL);
@@ -53,15 +50,6 @@ public class BackroomsL1 {
             if(!isChunkInNoise(chunk.getPos().x,chunk.getPos().z, GenNoise.EmptyAreaNoise, 0.25)) {
                 GenUtil.generateBasicWallsWithExtension(chunk, L1_FLOOR_LEVEL, L1_CEILING_LEVEL, ModBlocks.LVL1_WALLPAPER.get(), 3,  Blocks.STONE_BRICKS);
             }
-        } else {
-            GenUtil.fillLayer(chunk, L1_FLOOR_LEVEL, ModBlocks.LVL1_CARPET.get());
-            GenUtil.generateLights(chunk, L1_CEILING_LEVEL);
-            BlockFill.fillArea(chunk, 0, L1_FLOOR_LEVEL, 14, 15, L1_FLOOR_LEVEL, 14, Blocks.SMOOTH_STONE.defaultBlockState().getBlock());
-            BlockFill.fillArea(chunk, 0, L1_FLOOR_LEVEL, 1, 15, L1_FLOOR_LEVEL, 1, Blocks.SMOOTH_STONE.defaultBlockState().getBlock());
-            BlockFill.fillArea(chunk, 15, L1_FLOOR_LEVEL, 2, 0, L1_FLOOR_LEVEL, 13, Blocks.GRAY_CONCRETE.defaultBlockState().getBlock());
-        }
-
-
         carve(chunk);
     }
 

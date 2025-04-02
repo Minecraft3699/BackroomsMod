@@ -11,8 +11,6 @@ import net.minecraft.world.level.block.state.BlockState;
 
 public class BeamInitiatorBlockEntity extends BlockEntity {
 
-    boolean assemblyStatus = false;
-    boolean primary = false;
     boolean active = false;
     int charge = 300;
 
@@ -39,8 +37,6 @@ public class BeamInitiatorBlockEntity extends BlockEntity {
     @Override
     protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         tag.putInt("power", charge);
-        tag.putBoolean("assembled", assemblyStatus);
-        tag.putBoolean("primary_block", primary);
         tag.putBoolean("active", active);
         super.saveAdditional(tag, registries);
     }
@@ -48,9 +44,7 @@ public class BeamInitiatorBlockEntity extends BlockEntity {
     @Override
     protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.loadAdditional(tag, registries);
-        assemblyStatus = tag.getBoolean("assembled");
         charge = tag.getInt("power");
-        primary = tag.getBoolean("primary_block");
         active = tag.getBoolean("active");
     }
 

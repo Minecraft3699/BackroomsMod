@@ -2,6 +2,7 @@ package net.mc3699.backrooms.blocks;
 
 import net.mc3699.backrooms.blocks.entity.BeamInitiatorBlockEntity;
 import net.mc3699.backrooms.blocks.util.CustomDirectionalBlock;
+import net.mc3699.backrooms.blocks.util.ThresholdAssembler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -11,6 +12,7 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
@@ -24,6 +26,7 @@ public class BeamInitiatorBlock extends CustomDirectionalBlock implements Entity
         super(properties);
     }
 
+
     @Override
     public @Nullable BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
         return new BeamInitiatorBlockEntity(blockPos, blockState);
@@ -33,18 +36,22 @@ public class BeamInitiatorBlock extends CustomDirectionalBlock implements Entity
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
         if(!level.isClientSide())
         {
-            if(level.getBlockEntity(pos) instanceof BeamInitiatorBlockEntity beamInit)
+
+            ThresholdAssembler assembler = new ThresholdAssembler(level);
+
+            boolean success = assembler.checkThresholdAssembly(pos, state.getValue(FACING));
+            if(success)
             {
-                if(beamInit.isActive())
-                {
-                    beamInit.setActive(false);
-                } else {
-                    beamInit.setActive(true);
-                }
-                return InteractionResult.SUCCESS;
+                assembler.addPortalBlocks(pos, state.getValue(FACING));
             }
+
         }
         return InteractionResult.FAIL;
+    }
+
+    @Override
+    protected void onPlace(BlockState state, Level level, BlockPos pos, BlockState oldState, boolean movedByPiston) {
+        super.onPlace(state, level, pos, oldState, movedByPiston);
     }
 
     @Override

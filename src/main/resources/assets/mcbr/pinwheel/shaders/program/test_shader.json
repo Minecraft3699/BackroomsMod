@@ -1,0 +1,9 @@
+{
+  "program": "mcbr:test_shader",
+  "fragment": "mcbr:test_shader",
+  "uniforms": [
+    { "name": "uColor", "type": "vec4",
+      "default": [1.0,0.0,0.0,1.0]
+    }
+  ]
+}

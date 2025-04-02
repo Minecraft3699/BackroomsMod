@@ -24,6 +24,8 @@ import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.function.Consumer;
+
 public class ThresholdPortalBlock extends CustomDirectionalBlock implements EntityBlock {
     public ThresholdPortalBlock(Properties properties) {
         super(properties);
@@ -31,26 +33,14 @@ public class ThresholdPortalBlock extends CustomDirectionalBlock implements Enti
     }
 
 
-
-    @Override
-    protected @NotNull InteractionResult useWithoutItem(@NotNull BlockState state, Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull BlockHitResult hitResult) {
-
-        if(!level.isClientSide() && player instanceof ServerPlayer serverPlayer)
-        {
-            // Overworld To Backrooms
-            ServerLevel backroomsLevel = serverPlayer.server.getLevel(BackroomsGeneration.BACKROOMS_DIM_KEY);
-            assert backroomsLevel != null;
-            serverPlayer.changeDimension(new DimensionTransition(backroomsLevel, new Vec3(pos.getX()+0.5, -61, pos.getZ()+0.5), new Vec3(0, 0, 0), 0, 0, false,
-                    entity -> {
-                            // Intentionally blank, add effects here if you want them after entering backrooms
-                    }));
-        }
-        return InteractionResult.SUCCESS;
-    }
-
-
     @Override
     protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
+
+
+        if(level.getBlockEntity(pos) instanceof ThresholdPortalBlockEntity thresholdPortalBlockEntity && entity instanceof Player)
+        {
+            thresholdPortalBlockEntity.removeAllLights();
+        }
 
         if(level instanceof ServerLevel serverLevel)
         {
@@ -61,9 +51,12 @@ public class ThresholdPortalBlock extends CustomDirectionalBlock implements Enti
 
             if(serverLevel.equals(overworldLevel))
             {
+
+                BlockPos entryPoint = new BlockPos(pos.getX(), -40, pos.getZ());
+
                 assert backroomsLevel != null;
-                backroomsLevel.setBlock(new BlockPos(pos.getX(), -61, pos.getZ()), Blocks.STONE.defaultBlockState(), 3);
-                entity.teleportTo(backroomsLevel, pos.getX()+0.5, -60, pos.getZ()+0.5, RelativeMovement.ALL, entity.getYHeadRot(), entity.getXRot());
+                backroomsLevel.setBlock(entryPoint, ModBlocks.THRESHOLD_PORTAL.get().defaultBlockState(), 3);
+                entity.teleportTo(backroomsLevel, pos.getX()+0.5, -40, pos.getZ()+3, RelativeMovement.ALL, entity.getYHeadRot(), entity.getXRot());
             }
 
         }

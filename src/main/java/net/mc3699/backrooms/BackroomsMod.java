@@ -1,6 +1,7 @@
 package net.mc3699.backrooms;
 
 import foundry.veil.Veil;
+import foundry.veil.VeilClient;
 import net.mc3699.backrooms.blocks.ModBlockEntities;
 import net.mc3699.backrooms.blocks.ModBlocks;
 import net.mc3699.backrooms.blocks.blockRenderer.PlasmaRenderer;
@@ -72,6 +73,9 @@ public class BackroomsMod
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
+            VeilClient.init();
+
+
             EntityRenderers.register(ModEntities.HOWLER_ENTITY, HowlerRenderer::new);
             EntityRenderers.register(ModEntities.LIFEFORM_ENTITY, LifeformRenderer::new);
             BlockEntityRenderers.register(ModBlockEntities.THRESHOLD_PORTAL.get(), ThresholdPortalRenderer::new);

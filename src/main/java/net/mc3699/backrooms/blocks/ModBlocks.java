@@ -6,6 +6,7 @@ import net.mc3699.backrooms.items.ModItems;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.neoforged.bus.api.IEventBus;
@@ -31,6 +32,8 @@ public class ModBlocks {
                     .sound(SoundType.STONE)
             ));
 
+    public static final DeferredBlock<Block> CHAIR = registerBlock("chair", ()-> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)));
+
     public static final DeferredBlock<Block> LVL1_CEILING_TILE = registerBlock("lvl1_ceiling_tile",
             () -> new Block(BlockBehaviour.Properties.of().sound(SoundType.WOOL)));
 
@@ -47,13 +50,13 @@ public class ModBlocks {
             () -> new LaserBlock(BlockBehaviour.Properties.of()));
 
     public static final DeferredBlock<Block> RF_CAVITY = registerBlock("rf_cavity",
-            () -> new CustomDirectionalBlock(BlockBehaviour.Properties.of().sound(SoundType.COPPER_GRATE)));
+            () -> new RFCavityBlock(BlockBehaviour.Properties.of().sound(SoundType.COPPER_GRATE)));
 
     public static final DeferredBlock<Block> BEAM_INITIATOR = registerBlock("beam_initiator",
             () -> new BeamInitiatorBlock(BlockBehaviour.Properties.of().sound(SoundType.METAL)));
 
     public static final DeferredBlock<Block> MAGNETIC_LENS = registerBlock("magnetic_lens",
-            () -> new CustomDirectionalBlock(BlockBehaviour.Properties.of().sound(SoundType.COPPER)));
+            () -> new MagneticLensBlock(BlockBehaviour.Properties.of().sound(SoundType.COPPER)));
 
     public static final DeferredBlock<Block> THRESHOLD_BACKPLANE = registerBlock("threshold_backplane",
             () -> new Block(BlockBehaviour.Properties.of().sound(SoundType.STONE)));
@@ -66,6 +69,9 @@ public class ModBlocks {
 
     public static final DeferredBlock<AuditoryGuidepostBlock> AUDITORY_GUIDEPOST = registerBlock("auditory_guidepost",
             () -> new AuditoryGuidepostBlock(BlockBehaviour.Properties.of().sound(SoundType.METAL).noCollission()));
+
+    public static final DeferredBlock<FalseSkyBlock> FALSE_SKY_BLOCK = registerBlock("false_sky",
+            () -> new FalseSkyBlock(BlockBehaviour.Properties.of().destroyTime(1000000f)));
 
 
 

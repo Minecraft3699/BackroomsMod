@@ -32,12 +32,6 @@ public class ModBlockEntities {
                     ModBlocks.THRESHOLD_PORTAL.get()
             ).build(null));
 
-    public static final Supplier<BlockEntityType<LightTestBlockEntity>> LIGHT_TEST_BLOCK_ENTITY = BLOCK_ENTITIES.register("light_test_entity",
-            () -> BlockEntityType.Builder.of(
-                    LightTestBlockEntity::new,
-                    ModBlocks.LIGHT_TEST.get()
-            ).build(null));
-
     public static final Supplier<BlockEntityType<BeamInitiatorBlockEntity>> BEAM_INIT_ENTITY = BLOCK_ENTITIES.register("beam_init_entity",
             () -> BlockEntityType.Builder.of(
                     BeamInitiatorBlockEntity::new,

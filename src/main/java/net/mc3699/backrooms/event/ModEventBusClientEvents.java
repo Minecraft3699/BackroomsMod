@@ -1,6 +1,5 @@
 package net.mc3699.backrooms.event;
 
-import foundry.veil.api.client.render.shader.VeilShaders;
 import net.mc3699.backrooms.BackroomsMod;
 import net.mc3699.backrooms.entity.client.HowlerPlaceholderModel;
 import net.mc3699.backrooms.entity.client.LifeformModel;

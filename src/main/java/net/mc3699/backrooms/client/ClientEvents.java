@@ -2,12 +2,6 @@ package net.mc3699.backrooms.client;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.DefaultVertexFormat;
-import foundry.veil.api.client.registry.LightTypeRegistry;
-import foundry.veil.api.client.render.VeilRenderSystem;
-import foundry.veil.api.client.render.light.Light;
-import foundry.veil.api.client.render.light.PointLight;
-import foundry.veil.api.client.render.light.renderer.LightRenderer;
-import foundry.veil.api.client.render.shader.VeilShaders;
 import net.mc3699.backrooms.BackroomsMod;
 import net.mc3699.backrooms.blocks.Level1CeilingLightBlock;
 import net.mc3699.backrooms.dimension.BackroomsGeneration;

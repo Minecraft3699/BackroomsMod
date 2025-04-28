@@ -1,11 +1,8 @@
 package net.mc3699.backrooms;
 
-import foundry.veil.Veil;
-import foundry.veil.VeilClient;
 import net.mc3699.backrooms.blocks.ModBlockEntities;
 import net.mc3699.backrooms.blocks.ModBlocks;
 import net.mc3699.backrooms.blocks.blockRenderer.PlasmaRenderer;
-import net.mc3699.backrooms.blocks.blockRenderer.ThresholdPortalRenderer;
 import net.mc3699.backrooms.dimension.BackroomsGeneration;
 import net.mc3699.backrooms.entity.ModEntities;
 import net.mc3699.backrooms.entity.client.HowlerRenderer;
@@ -13,6 +10,7 @@ import net.mc3699.backrooms.entity.client.LifeformRenderer;
 import net.mc3699.backrooms.items.CreativeTab;
 import net.mc3699.backrooms.items.ModItems;
 import net.mc3699.backrooms.sound.ModSounds;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import org.lwjgl.opengl.GLDebugMessageCallback;
@@ -73,12 +71,8 @@ public class BackroomsMod
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
-            VeilClient.init();
-
-
             EntityRenderers.register(ModEntities.HOWLER_ENTITY, HowlerRenderer::new);
             EntityRenderers.register(ModEntities.LIFEFORM_ENTITY, LifeformRenderer::new);
-            BlockEntityRenderers.register(ModBlockEntities.THRESHOLD_PORTAL.get(), ThresholdPortalRenderer::new);
         }
     }
 

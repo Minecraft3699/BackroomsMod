@@ -32,34 +32,8 @@ public class ThresholdPortalBlock extends CustomDirectionalBlock implements Enti
         this.registerDefaultState(this.getStateDefinition().any().setValue(FACING, Direction.NORTH));
     }
 
-
     @Override
     protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
-
-
-        if(level.getBlockEntity(pos) instanceof ThresholdPortalBlockEntity thresholdPortalBlockEntity && entity instanceof Player)
-        {
-            thresholdPortalBlockEntity.removeAllLights();
-        }
-
-        if(level instanceof ServerLevel serverLevel)
-        {
-            MinecraftServer server = serverLevel.getServer();
-
-            ServerLevel overworldLevel = server.getLevel(Level.OVERWORLD);
-            ServerLevel backroomsLevel = server.getLevel(BackroomsGeneration.BACKROOMS_DIM_KEY);
-
-            if(serverLevel.equals(overworldLevel))
-            {
-
-                BlockPos entryPoint = new BlockPos(pos.getX(), -40, pos.getZ());
-
-                assert backroomsLevel != null;
-                backroomsLevel.setBlock(entryPoint, ModBlocks.THRESHOLD_PORTAL.get().defaultBlockState(), 3);
-                entity.teleportTo(backroomsLevel, pos.getX()+0.5, -40, pos.getZ()+3, RelativeMovement.ALL, entity.getYHeadRot(), entity.getXRot());
-            }
-
-        }
 
         super.entityInside(state, level, pos, entity);
     }

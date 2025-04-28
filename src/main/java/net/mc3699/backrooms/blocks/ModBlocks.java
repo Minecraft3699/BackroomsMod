@@ -61,9 +61,6 @@ public class ModBlocks {
     public static final DeferredBlock<Block> THRESHOLD_BACKPLANE = registerBlock("threshold_backplane",
             () -> new Block(BlockBehaviour.Properties.of().sound(SoundType.STONE)));
 
-    public static final DeferredBlock<Block> LIGHT_TEST = registerBlock("light_test",
-            () -> new LightingTestBlock(BlockBehaviour.Properties.of()));
-
     public static final DeferredBlock<Block> THRESHOLD_PORTAL = registerBlock("threshold_portal",
             () -> new ThresholdPortalBlock(BlockBehaviour.Properties.of().noCollission()));
 

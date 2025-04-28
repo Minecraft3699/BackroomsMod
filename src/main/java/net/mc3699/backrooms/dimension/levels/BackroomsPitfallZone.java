@@ -90,12 +90,25 @@ public class BackroomsPitfallZone {
         BlockFill.fillArea(chunk, 0, PFZ_FLOOR_LEVEL, 0, 15, PFZ_FLOOR_LEVEL, 15, Blocks.GRASS_BLOCK.defaultBlockState().getBlock());
     }
 
-    private static void buildStreetLight(ChunkAccess chunk, int cx, int cz, int dir)
-    {
-        BlockFill.fillArea(chunk, cx, PFZ_FLOOR_LEVEL+1, cz, cx, PFZ_FLOOR_LEVEL+5, cz, Blocks.OAK_FENCE.defaultBlockState().getBlock());
-        //BlockFill.fillArea(chunk, cx, PFZ_FLOOR_LEVEL+5, cz, cx, PFZ_FLOOR_LEVEL+5, cz+dir, Blocks.OAK_FENCE.defaultBlockState().getBlock());
-        chunk.setBlockState(new BlockPos(cx, PFZ_FLOOR_LEVEL+5, cz), Blocks.GLOWSTONE.defaultBlockState(), false);
-        //chunk.getLevel().getChunkSource().getLightEngine().runLightUpdates();
+    private static void buildStreetLight(ChunkAccess chunk, int localX, int localZ) {
+        ChunkPos chunkPos = chunk.getPos();
+        int globalX = chunkPos.x * 16 + localX;
+        int globalZ = chunkPos.z * 16 + localZ;
+
+        // Build vertical oak fence pole
+        for (int y = PFZ_FLOOR_LEVEL + 1; y <= PFZ_FLOOR_LEVEL + 4; y++) {
+            BlockPos pos = new BlockPos(globalX, y, globalZ);
+            chunk.setBlockState(pos, Blocks.OAK_FENCE.defaultBlockState(), false);
+        }
+
+        // Place glowstone on top
+        BlockPos lightPos = new BlockPos(globalX, PFZ_FLOOR_LEVEL + 5, globalZ);
+        chunk.setBlockState(lightPos, Blocks.GLOWSTONE.defaultBlockState(), false);
+
+        // Ensure light updates
+        if (chunk.getLevel() instanceof ServerLevel serverLevel) {
+            serverLevel.getChunkSource().getLightEngine().checkBlock(lightPos);
+        }
     }
 
     public static void generateChunk(ChunkAccess chunk)
@@ -116,8 +129,10 @@ public class BackroomsPitfallZone {
         if(chunk.getPos().z == 416)
         {
             genZRoad(chunk);
-            //buildStreetLight(chunk, 0,0,-2);
-            //buildStreetLight(chunk, 8,0,-2);
+            buildStreetLight(chunk, 0, 0);  // North side, X=0
+            buildStreetLight(chunk, 8, 0);  // North side, X=8
+            buildStreetLight(chunk, 0, 15); // South side, X=0
+            buildStreetLight(chunk, 8, 15); // South side, X=8
         }
 
     }

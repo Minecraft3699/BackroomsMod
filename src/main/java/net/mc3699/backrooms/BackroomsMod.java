@@ -2,18 +2,14 @@ package net.mc3699.backrooms;
 
 import net.mc3699.backrooms.blocks.ModBlockEntities;
 import net.mc3699.backrooms.blocks.ModBlocks;
-import net.mc3699.backrooms.blocks.blockRenderer.PlasmaRenderer;
-import net.mc3699.backrooms.dimension.BackroomsGeneration;
+import net.mc3699.backrooms.dimension.ModChunkGenerators;
 import net.mc3699.backrooms.entity.ModEntities;
 import net.mc3699.backrooms.entity.client.HowlerRenderer;
 import net.mc3699.backrooms.entity.client.LifeformRenderer;
 import net.mc3699.backrooms.items.CreativeTab;
 import net.mc3699.backrooms.items.ModItems;
 import net.mc3699.backrooms.sound.ModSounds;
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
-import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.entity.EntityRenderers;
-import org.lwjgl.opengl.GLDebugMessageCallback;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -29,10 +25,6 @@ import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 
-import java.lang.module.Configuration;
-import java.util.logging.LogManager;
-
-import static org.lwjgl.opengl.GL43.*;
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(BackroomsMod.MODID)
 public class BackroomsMod
@@ -58,7 +50,7 @@ public class BackroomsMod
         ModBlockEntities.register(modEventBus);
         CreativeTab.register(modEventBus);
         ModSounds.register(modEventBus);
-        NeoForge.EVENT_BUS.addListener(BackroomsGeneration::backroomsChunkGen);
+        ModChunkGenerators.register(modEventBus);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {

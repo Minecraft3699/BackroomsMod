@@ -2,15 +2,19 @@ package net.mc3699.backrooms.dimension.levels;
 
 import net.mc3699.backrooms.blocks.ModBlocks;
 import net.mc3699.backrooms.dimension.GenNoise;
+import net.mc3699.backrooms.dimension.util.BackroomsLevel;
 import net.mc3699.backrooms.dimension.util.GenUtil;
 import net.mc3699.backrooms.utility.BlockFill;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.WorldGenRegion;
+import net.minecraft.world.level.StructureManager;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.chunk.ChunkAccess;
+import net.minecraft.world.level.levelgen.RandomState;
 
 import static net.mc3699.backrooms.dimension.util.GenUtil.*;
 
-public class BackroomsL1 {
+public class BackroomsL1 extends BackroomsLevel {
 
     private final static int L1_FLOOR_LEVEL = -47 + 6;
     private final static int L1_CEILING_LEVEL = -42 + 7;
@@ -53,4 +57,18 @@ public class BackroomsL1 {
         carve(chunk);
     }
 
+    @Override
+    public void generate(WorldGenRegion worldGenRegion, StructureManager structureManager, RandomState randomState, ChunkAccess chunkAccess) {
+        generateChunk(chunkAccess);
+    }
+
+    @Override
+    public int getStartLevel() {
+        return 0;
+    }
+
+    @Override
+    public int getEndLevel() {
+        return 0;
+    }
 }

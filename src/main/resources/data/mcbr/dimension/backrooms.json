@@ -1,15 +1,10 @@
 {
   "type": "mcbr:backrooms_type",
   "generator": {
-    "type": "minecraft:flat",
-    "settings": {
-      "layers": [
-
-      ],
-      "biome": "mcbr:backrooms_level_one",
-      "structures": {
-        "structures": {}
-      }
+    "type": "mcbr:backrooms",
+    "biome_source": {
+      "type": "fixed",
+      "biome": "mcbr:backrooms_level_one"
     }
   }
 }

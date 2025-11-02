@@ -1,19 +1,23 @@
 package net.mc3699.backrooms.dimension.levels;
 
 import net.mc3699.backrooms.blocks.ModBlocks;
+import net.mc3699.backrooms.dimension.util.BackroomsLevel;
 import net.mc3699.backrooms.dimension.util.GenUtil;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.server.level.WorldGenRegion;
+import net.minecraft.world.level.StructureManager;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.chunk.ChunkAccess;
+import net.minecraft.world.level.levelgen.RandomState;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.Random;
 
-public class BackroomsL2 {
+public class BackroomsL2 extends BackroomsLevel {
 
     private static final Random random = new Random();
 
@@ -40,4 +44,18 @@ public class BackroomsL2 {
         GenUtil.generateLights(chunk, L2_CEILING_HEIGHT);
     }
 
+    @Override
+    public void generate(WorldGenRegion worldGenRegion, StructureManager structureManager, RandomState randomState, ChunkAccess chunkAccess) {
+        generateChunk(chunkAccess);
+    }
+
+    @Override
+    public int getStartLevel() {
+        return 0;
+    }
+
+    @Override
+    public int getEndLevel() {
+        return 0;
+    }
 }

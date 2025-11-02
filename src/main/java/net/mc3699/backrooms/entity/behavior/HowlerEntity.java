@@ -1,6 +1,4 @@
 package net.mc3699.backrooms.entity.behavior;
-
-import foundry.veil.api.client.render.light.PointLight;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.entity.*;

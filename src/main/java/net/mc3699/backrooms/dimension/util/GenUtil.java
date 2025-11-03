@@ -1,15 +1,24 @@
 package net.mc3699.backrooms.dimension.util;
 
 import net.mc3699.backrooms.blocks.ModBlocks;
+import net.mc3699.backrooms.dimension.BackroomsStructures;
 import net.mc3699.backrooms.utility.BlockFill;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.server.level.WorldGenRegion;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.chunk.ChunkAccess;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplateManager;
 import net.minecraft.world.level.levelgen.synth.PerlinNoise;
 
+import java.util.Optional;
 import java.util.Random;
 
 public class GenUtil {
@@ -116,6 +125,26 @@ public class GenUtil {
     {
         fillWall(chunk, 6, 3, 9, 12, floorLevel, ceilingLevel,ModBlocks.LVL1_WALLPAPER.get());
         fillWall(chunk, 3, 6, 12,9, floorLevel, ceilingLevel, ModBlocks.LVL1_WALLPAPER.get());
+    }
+
+    public static void placeBackroomsStructure(
+            BackroomsStructures.BackroomsStructureInfo structureInfo,
+            Rotation rotation,
+            WorldGenRegion world,
+            BlockPos startPos,
+            RandomSource random
+    ) {
+        StructureTemplateManager templateManager = world.getLevel().getStructureManager();
+        Optional<StructureTemplate> structureTemplate = templateManager.get(structureInfo.structure());
+
+        if (structureTemplate.isPresent()) {
+            StructureTemplate template = structureTemplate.get();
+            StructurePlaceSettings placeSettings = new StructurePlaceSettings()
+                    .setRandom(random)
+                    .setIgnoreEntities(true)
+                    .setRotation(rotation);
+            template.placeInWorld(world, startPos, startPos.offset(structureInfo.offset()), placeSettings, random, 2);
+        }
     }
 
 }

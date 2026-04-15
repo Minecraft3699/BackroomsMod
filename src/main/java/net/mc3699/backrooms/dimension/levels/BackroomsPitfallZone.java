@@ -1,19 +1,14 @@
 package net.mc3699.backrooms.dimension.levels;
 
-import net.mc3699.backrooms.blocks.ModBlocks;
+import net.mc3699.backrooms.registry.BRBlocks;
 import net.mc3699.backrooms.dimension.GenNoise;
 import net.mc3699.backrooms.dimension.util.GenUtil;
 import net.mc3699.backrooms.utility.BlockFill;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.server.level.TicketType;
 import net.minecraft.world.level.ChunkPos;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.chunk.ChunkAccess;
-import net.minecraft.world.level.chunk.status.ChunkStatus;
-import org.checkerframework.checker.units.qual.C;
 
 import static net.mc3699.backrooms.dimension.util.GenUtil.isChunkInNoise;
 import static net.mc3699.backrooms.dimension.util.GenUtil.random;
@@ -43,8 +38,8 @@ public class BackroomsPitfallZone {
     {
 
         GenUtil.fillLayer(chunk, PFZ_CEILING_LEVEL + 3, Blocks.OAK_PLANKS);
-        GenUtil.fillLayer(chunk, PFZ_FLOOR_LEVEL, ModBlocks.LVL1_CARPET.get());
-        GenUtil.fillLayer(chunk, PFZ_CEILING_LEVEL, ModBlocks.LVL1_CEILING_TILE.get());
+        GenUtil.fillLayer(chunk, PFZ_FLOOR_LEVEL, BRBlocks.LVL1_CARPET.get());
+        GenUtil.fillLayer(chunk, PFZ_CEILING_LEVEL, BRBlocks.LVL1_CEILING_TILE.get());
 
 
         if(isChunkInNoise(chunk.getPos().x, chunk.getPos().z, GenNoise.PlusRoomNoise, 0.6))
@@ -58,7 +53,7 @@ public class BackroomsPitfallZone {
         }
 
         if(!isChunkInNoise(chunk.getPos().x,chunk.getPos().z, GenNoise.EmptyAreaNoise, 0.25)) {
-            GenUtil.generateBasicWallsWithExtension(chunk, PFZ_FLOOR_LEVEL, PFZ_CEILING_LEVEL, ModBlocks.LVL1_WALLPAPER.get(), 3,  Blocks.STONE_BRICKS);
+            GenUtil.generateBasicWallsWithExtension(chunk, PFZ_FLOOR_LEVEL, PFZ_CEILING_LEVEL, BRBlocks.LVL1_WALLPAPER.get(), 3,  Blocks.STONE_BRICKS);
         }
 
         carve(chunk);

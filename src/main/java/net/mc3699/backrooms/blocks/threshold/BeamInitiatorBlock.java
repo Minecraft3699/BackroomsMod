@@ -1,22 +1,17 @@
-package net.mc3699.backrooms.blocks;
+package net.mc3699.backrooms.blocks.threshold;
 
-import net.mc3699.backrooms.blocks.entity.BeamInitiatorBlockEntity;
+import net.mc3699.backrooms.registry.BRBlockEntities;
+import net.mc3699.backrooms.registry.BRBlocks;
 import net.mc3699.backrooms.blocks.util.CustomDirectionalBlock;
 import net.mc3699.backrooms.blocks.util.ThresholdAssembler;
-import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
-import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.BlockEntityTicker;
-import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.Nullable;
@@ -29,7 +24,7 @@ public class BeamInitiatorBlock extends CustomDirectionalBlock implements Entity
 
     @Override
     public @Nullable BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
-        return new BeamInitiatorBlockEntity(blockPos, blockState);
+        return BRBlockEntities.BEAM_INIT_ENTITY.create(blockPos,blockState);
     }
 
     @Override

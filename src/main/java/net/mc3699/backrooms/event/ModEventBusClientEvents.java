@@ -1,6 +1,6 @@
 package net.mc3699.backrooms.event;
 
-import net.mc3699.backrooms.BackroomsMod;
+import net.mc3699.backrooms.Backrooms;
 import net.mc3699.backrooms.entity.client.HowlerPlaceholderModel;
 import net.mc3699.backrooms.entity.client.LifeformModel;
 import net.mc3699.backrooms.entity.client.ModModelLayers;
@@ -10,7 +10,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterShadersEvent;
 
-@EventBusSubscriber(modid = BackroomsMod.MODID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+@EventBusSubscriber(modid = Backrooms.MODID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class ModEventBusClientEvents {
 
 

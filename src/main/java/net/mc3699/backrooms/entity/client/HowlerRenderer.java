@@ -1,6 +1,6 @@
 package net.mc3699.backrooms.entity.client;
 
-import net.mc3699.backrooms.BackroomsMod;
+import net.mc3699.backrooms.Backrooms;
 import net.mc3699.backrooms.entity.behavior.HowlerEntity;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
@@ -13,6 +13,6 @@ public class HowlerRenderer extends MobRenderer<HowlerEntity, HowlerPlaceholderM
 
     @Override
     public ResourceLocation getTextureLocation(HowlerEntity howlerEntity) {
-        return ResourceLocation.fromNamespaceAndPath(BackroomsMod.MODID, "textures/entity/howler_base.png");
+        return ResourceLocation.fromNamespaceAndPath(Backrooms.MODID, "textures/entity/howler_base.png");
     }
 }

@@ -1,12 +1,9 @@
-package net.mc3699.backrooms.blocks;
+package net.mc3699.backrooms.blocks.misc;
 
-import net.mc3699.backrooms.blocks.entity.LaserBlockEntity;
+import net.mc3699.backrooms.registry.BRBlockEntities;
+import net.mc3699.backrooms.registry.BRBlocks;
 import net.mc3699.backrooms.blocks.util.CustomDirectionalBlock;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
-import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
@@ -49,6 +46,6 @@ public class LaserBlock extends CustomDirectionalBlock implements EntityBlock {
 
     @Override
     public @Nullable BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
-        return new LaserBlockEntity(blockPos,blockState);
+        return BRBlockEntities.LASER.create(blockPos,blockState);
     }
 }

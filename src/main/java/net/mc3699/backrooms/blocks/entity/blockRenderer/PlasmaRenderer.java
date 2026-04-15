@@ -1,10 +1,10 @@
-package net.mc3699.backrooms.blocks.blockRenderer;
+package net.mc3699.backrooms.blocks.entity.blockRenderer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
-import net.mc3699.backrooms.BackroomsMod;
-import net.mc3699.backrooms.blocks.LaserBlock;
+import net.mc3699.backrooms.Backrooms;
+import net.mc3699.backrooms.blocks.misc.LaserBlock;
 import net.mc3699.backrooms.blocks.entity.LaserBlockEntity;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
@@ -22,7 +22,7 @@ public class PlasmaRenderer implements BlockEntityRenderer<LaserBlockEntity> {
     }
 
 
-    private static final ResourceLocation plasmaTexture = ResourceLocation.fromNamespaceAndPath(BackroomsMod.MODID, "textures/block/plasma.png");
+    private static final ResourceLocation plasmaTexture = ResourceLocation.fromNamespaceAndPath(Backrooms.MODID, "textures/block/plasma.png");
     RandomSource randomSource = RandomSource.create();
 
     @Override

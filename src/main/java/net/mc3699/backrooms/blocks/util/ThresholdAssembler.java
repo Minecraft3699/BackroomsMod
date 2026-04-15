@@ -1,19 +1,13 @@
 package net.mc3699.backrooms.blocks.util;
 
-import net.mc3699.backrooms.blocks.BeamInitiatorBlock;
-import net.mc3699.backrooms.blocks.MagneticLensBlock;
-import net.mc3699.backrooms.blocks.ModBlocks;
-import net.mc3699.backrooms.blocks.RFCavityBlock;
-import net.mc3699.backrooms.utility.BlockFill;
+import net.mc3699.backrooms.blocks.threshold.BeamInitiatorBlock;
+import net.mc3699.backrooms.blocks.threshold.MagneticLensBlock;
+import net.mc3699.backrooms.registry.BRBlocks;
+import net.mc3699.backrooms.blocks.threshold.RFCavityBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
-import net.minecraft.world.level.block.state.properties.Property;
 
 public class ThresholdAssembler {
 
@@ -97,7 +91,7 @@ public class ThresholdAssembler {
             {
                 for(int y = 0; y < 3; y++)
                 {
-                    level.setBlock(beamOrigin.relative(assemblyDirection, 3+x).above(y), ModBlocks.THRESHOLD_PORTAL.get().defaultBlockState(), 3);
+                    level.setBlock(beamOrigin.relative(assemblyDirection, 3+x).above(y), BRBlocks.THRESHOLD_PORTAL.get().defaultBlockState(), 3);
                 }
             }
         }

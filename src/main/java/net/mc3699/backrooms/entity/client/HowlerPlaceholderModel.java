@@ -5,7 +5,7 @@ package net.mc3699.backrooms.entity.client;// Made with Blockbench 4.10.4
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import net.mc3699.backrooms.BackroomsMod;
+import net.mc3699.backrooms.Backrooms;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
@@ -16,7 +16,7 @@ import net.minecraft.world.entity.Entity;
 
 public class HowlerPlaceholderModel<T extends Entity> extends EntityModel<T> {
 	// This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
-	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(BackroomsMod.MODID, "howler_placeholder"), "main");
+	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(Backrooms.MODID, "howler_placeholder"), "main");
 	private final ModelPart bb_main;
 
 	public HowlerPlaceholderModel(ModelPart root) {

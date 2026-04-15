@@ -1,6 +1,6 @@
 package net.mc3699.backrooms.entity.client;
 
-import net.mc3699.backrooms.BackroomsMod;
+import net.mc3699.backrooms.Backrooms;
 import net.mc3699.backrooms.entity.behavior.LifeformEntity;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
@@ -13,6 +13,6 @@ public class LifeformRenderer extends MobRenderer<LifeformEntity, LifeformModel<
 
     @Override
     public ResourceLocation getTextureLocation(LifeformEntity lifeformEntity) {
-        return ResourceLocation.fromNamespaceAndPath(BackroomsMod.MODID, "textures/entity/lifeform_gen_1.png");
+        return ResourceLocation.fromNamespaceAndPath(Backrooms.MODID, "textures/entity/lifeform_gen_1.png");
     }
 }

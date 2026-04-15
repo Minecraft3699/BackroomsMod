@@ -1,13 +1,9 @@
-package net.mc3699.backrooms.blocks;
+package net.mc3699.backrooms.blocks.structure;
 
-import net.minecraft.core.BlockPos;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
-import org.jetbrains.annotations.NotNull;
 
 public class WallpaperBlock extends Block {
 

@@ -1,4 +1,4 @@
-package net.mc3699.backrooms.blocks;
+package net.mc3699.backrooms.blocks.structure;
 
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RenderShape;

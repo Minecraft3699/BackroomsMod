@@ -1,5 +1,4 @@
 package net.mc3699.backrooms.blocks.entity;
-import net.mc3699.backrooms.blocks.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
@@ -8,20 +7,18 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
-
-import java.util.List;
 
 public class ThresholdPortalBlockEntity extends BlockEntity {
 
     private BlockPos targetLocation;
     private ResourceKey<Level> targetDimension;
 
-
-
-    public ThresholdPortalBlockEntity(BlockPos pos, BlockState blockState) {
-        super(ModBlockEntities.THRESHOLD_PORTAL.get(), pos, blockState);
+    public ThresholdPortalBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState blockState) {
+        super(type, pos, blockState);
     }
+
 
     @Override
     public void setRemoved() {

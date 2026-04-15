@@ -1,4 +1,4 @@
-package net.mc3699.backrooms.blocks;
+package net.mc3699.backrooms.blocks.threshold;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -18,7 +18,7 @@ public class ThresholdOriginBlock extends Block {
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
     public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
 
-    protected ThresholdOriginBlock(Properties properties) {
+    public ThresholdOriginBlock(Properties properties) {
         super(properties);
         this.registerDefaultState(this.getStateDefinition().any()
                 .setValue(FACING, Direction.NORTH)

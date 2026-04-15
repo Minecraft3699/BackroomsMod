@@ -1,10 +1,7 @@
 package net.mc3699.backrooms.dimension.levels;
 
-import net.mc3699.backrooms.blocks.ModBlocks;
 import net.mc3699.backrooms.dimension.util.BackroomsLevel;
 import net.mc3699.backrooms.dimension.util.GenUtil;
-import net.minecraft.core.Registry;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.WorldGenRegion;
 import net.minecraft.world.level.StructureManager;
 import net.minecraft.world.level.block.Block;
@@ -14,7 +11,6 @@ import net.minecraft.world.level.levelgen.RandomState;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.Random;
 
 public class BackroomsL2 extends BackroomsLevel {

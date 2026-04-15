@@ -1,5 +1,7 @@
-package net.mc3699.backrooms.blocks;
+package net.mc3699.backrooms.blocks.misc;
 
+import net.mc3699.backrooms.registry.BRBlockEntities;
+import net.mc3699.backrooms.registry.BRBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.EntityBlock;
@@ -14,6 +16,6 @@ public class PrototypeBlock extends Block implements EntityBlock {
 
     @Override
     public @Nullable BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
-        return ModBlockEntities.PROTOTYPE_BLOCK_ENTITY.get().create(blockPos,blockState);
+        return BRBlockEntities.PROTOTYPE.create(blockPos,blockState);
     }
 }

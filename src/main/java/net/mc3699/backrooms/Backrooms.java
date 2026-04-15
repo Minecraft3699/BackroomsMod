@@ -1,13 +1,12 @@
 package net.mc3699.backrooms;
 
-import net.mc3699.backrooms.blocks.ModBlockEntities;
-import net.mc3699.backrooms.blocks.ModBlocks;
+import dev.anvilcraft.lib.v2.registrum.Registrum;
+import net.mc3699.backrooms.registry.BRBlockEntities;
+import net.mc3699.backrooms.registry.BRBlocks;
 import net.mc3699.backrooms.dimension.ModChunkGenerators;
 import net.mc3699.backrooms.entity.ModEntities;
 import net.mc3699.backrooms.entity.client.HowlerRenderer;
 import net.mc3699.backrooms.entity.client.LifeformRenderer;
-import net.mc3699.backrooms.items.CreativeTab;
-import net.mc3699.backrooms.items.ModItems;
 import net.mc3699.backrooms.sound.ModSounds;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import org.slf4j.Logger;
@@ -25,30 +24,23 @@ import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 
-// The value here should match an entry in the META-INF/neoforge.mods.toml file
-@Mod(BackroomsMod.MODID)
-public class BackroomsMod
+@Mod(Backrooms.MODID)
+public class Backrooms
 {
-    // Define mod id in a common place for everything to reference
     public static final String MODID = "mcbr";
-    // Directly reference a slf4j logger
     private static final Logger LOGGER = LogUtils.getLogger();
-    // FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.
-    public BackroomsMod(IEventBus modEventBus, ModContainer modContainer)
-    {
-        // Register the commonSetup method for modloading
-        modEventBus.addListener(this::commonSetup);
+    public static final Registrum REGISTRUM = Registrum.create(MODID);
 
-        // Register ourselves for server and other game events we are interested in.
-        // Note that this is necessary if and only if we want *this* class (ExampleMod) to respond directly to events.
-        // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
+
+    public Backrooms(IEventBus modEventBus, ModContainer modContainer)
+    {
+        modEventBus.addListener(this::commonSetup);
         NeoForge.EVENT_BUS.register(this);
 
-        ModBlocks.register(modEventBus);
-        ModItems.register(modEventBus);
+        BRBlocks.init();
+        BRBlockEntities.init();
+
         ModEntities.register(modEventBus);
-        ModBlockEntities.register(modEventBus);
-        CreativeTab.register(modEventBus);
         ModSounds.register(modEventBus);
         ModChunkGenerators.register(modEventBus);
     }
@@ -57,7 +49,7 @@ public class BackroomsMod
 
     }
 
-    @EventBusSubscriber(modid = BackroomsMod.MODID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+    @EventBusSubscriber(modid = Backrooms.MODID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents
     {
         @SubscribeEvent

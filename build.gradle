@@ -114,6 +114,7 @@ dependencies {
 
     implementation files("libs/cloth-config-15.0.140-neoforge.jar")
     implementation files("libs/immersive_portals-6.0.6.jar")
+    implementation "dev.anvilcraft.lib:anvillib-registrum-neoforge-1.21.1:2.0.0+snapshot.222"
 
     // Example optional mod dependency with JEI
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime

@@ -1,6 +1,5 @@
 package net.mc3699.backrooms.blocks.entity;
 
-import net.mc3699.backrooms.blocks.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
@@ -8,11 +7,13 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 
-import java.util.UUID;
-
 public class PrototypeBlockEntity extends BlockEntity {
 
     boolean PORTAL_OPEN = false;
+
+    public PrototypeBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState blockState) {
+        super(type, pos, blockState);
+    }
 
     public boolean hasPortal()
     {
@@ -25,9 +26,6 @@ public class PrototypeBlockEntity extends BlockEntity {
     }
 
 
-    public PrototypeBlockEntity(BlockPos pos, BlockState blockState) {
-        super(ModBlockEntities.PROTOTYPE_BLOCK_ENTITY.get(), pos, blockState);
-    }
 
     @Override
     protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {

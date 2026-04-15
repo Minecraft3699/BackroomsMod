@@ -1,12 +1,11 @@
 package net.mc3699.backrooms.blocks.entity;
 
-import net.mc3699.backrooms.blocks.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.entity.AbstractFurnaceBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 
 public class BeamInitiatorBlockEntity extends BlockEntity {
@@ -14,8 +13,8 @@ public class BeamInitiatorBlockEntity extends BlockEntity {
     boolean active = false;
     int charge = 300;
 
-    public BeamInitiatorBlockEntity(BlockPos pos, BlockState blockState) {
-        super(ModBlockEntities.BEAM_INIT_ENTITY.get(), pos, blockState);
+    public BeamInitiatorBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState blockState) {
+        super(type, pos, blockState);
     }
 
     public int getCharge() {

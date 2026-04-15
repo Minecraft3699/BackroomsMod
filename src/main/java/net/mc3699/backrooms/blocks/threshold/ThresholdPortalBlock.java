@@ -1,6 +1,7 @@
-package net.mc3699.backrooms.blocks;
+package net.mc3699.backrooms.blocks.threshold;
 
-import net.mc3699.backrooms.blocks.entity.ThresholdPortalBlockEntity;
+import net.mc3699.backrooms.registry.BRBlockEntities;
+import net.mc3699.backrooms.registry.BRBlocks;
 import net.mc3699.backrooms.blocks.util.CustomDirectionalBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -25,6 +26,6 @@ public class ThresholdPortalBlock extends CustomDirectionalBlock implements Enti
 
     @Override
     public @Nullable BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
-        return new ThresholdPortalBlockEntity(blockPos, blockState);
+        return BRBlockEntities.THRESHOLD_PORTAL.create(blockPos,blockState);
     }
 }

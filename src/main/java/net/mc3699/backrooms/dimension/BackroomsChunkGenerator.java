@@ -3,6 +3,7 @@ package net.mc3699.backrooms.dimension;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.mc3699.backrooms.dimension.levels.BackroomsL1;
+import net.mc3699.backrooms.dimension.levels.BackroomsL2;
 import net.mc3699.backrooms.dimension.util.GenUtil;
 import net.mc3699.backrooms.dimension.util.RoomGen;
 import net.minecraft.core.BlockPos;
@@ -52,6 +53,7 @@ public class BackroomsChunkGenerator extends ChunkGenerator {
     @Override
     public void buildSurface(WorldGenRegion worldGenRegion, StructureManager structureManager, RandomState randomState, ChunkAccess chunkAccess) {
         BackroomsL1.generateChunk(chunkAccess);
+        BackroomsL2.generateChunk(chunkAccess);
     }
 
     @Override

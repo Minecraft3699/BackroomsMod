@@ -17,8 +17,8 @@ public class BackroomsL2 extends BackroomsLevel {
 
     private static final Random random = new Random();
 
-    public static final int L2_FLOOR_HEIGHT = -52;
-    public static final int L2_CEILING_HEIGHT = -37;
+    public static final int L2_FLOOR_HEIGHT = -31;
+    public static final int L2_CEILING_HEIGHT = -23;
 
 
     private static final List<Block> blockList = new ArrayList<>();
